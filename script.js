@@ -4,16 +4,9 @@ const gridcontainer = document.getElementById("grid-container");
 const controls = document.querySelector(".controls")
 const cell = document.getElementById(".cell")
 
-/* function makegrid() {
- for (let i = 1; i < 17; i++) {
- const cells = document.createElement("div");
- cells.classList.add("cell");
- gridcontainer.appendChild(cells);
-  }
-}
-makegrid(); */
-let cols
 let rows
+let columns
+let total = (rows * columns)
 
 const startbtn = document.createElement("button")
 startbtn.setAttribute("id", "startbtn");
@@ -31,7 +24,7 @@ controls.appendChild(rainbowbtn)
 rainbowbtn.textContent = "Rainbow"
 
 function makegrid(columns, rows) {
- let total = (rows * columns);
+total = (rows * columns)
 for (let i = 0 ; i < total; i++) {
 const divs = document.createElement("div");
 gridcontainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
@@ -57,16 +50,23 @@ startgame();
 
 
 function rainbowgrid() {
-let boxes = gridcontainer.querySelectorAll(".cell")
-rainbowbtn.addEventListener("click", () => {
-    boxes.forEach(box => box.addEventListener("mouseover", () => {
-      let r = Math.floor(Math.random() * 256);
-      let g = Math.floor(Math.random() * 256);
-      let b = Math.floor(Math.random() * 256);
+  let boxes = gridcontainer.querySelectorAll(".cell")
+  rainbowbtn.addEventListener("click", () => {  
+    boxes.forEach(box => box.addEventListener("mousedown", () => {
+      let r = Math.floor(Math.random() * 500);
+      let g = Math.floor(Math.random() * 500);
+      let b = Math.floor(Math.random() * 500);
       box.style.background = `rgb(${r}, ${g}, ${b})`
-               }))
-    })}
-rainbowgrid() 
+      boxes.forEach(box => box.addEventListener("mouseover", () => {
+        let r = Math.floor(Math.random()  * 500);
+        let g = Math.floor(Math.random()  * 500);
+        let b = Math.floor(Math.random() * 500); 
+      box.style.background = `rgb(${r}, ${g}, ${b})`       
+      }))
+    }))
+  })
+}
+rainbowgrid();
 
 
 
