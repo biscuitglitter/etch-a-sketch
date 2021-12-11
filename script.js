@@ -1,8 +1,8 @@
 "use strict";
 
 const gridcontainer = document.getElementById("grid-container");
-const blackbtn = document.getElementById("blackbtn")
 const controls = document.querySelector(".controls")
+const cell = document.getElementById(".cell")
 
 /* function makegrid() {
  for (let i = 1; i < 17; i++) {
@@ -15,31 +15,65 @@ makegrid(); */
 let cols
 let rows
 
-const makebutton = document.createElement("button")
-makebutton.setAttribute("id", "blackbtn");
+const startbtn = document.createElement("button")
+startbtn.setAttribute("id", "startbtn");
+controls.appendChild(startbtn)
+startbtn.textContent = "Start"
 
+const resetbtn = document.createElement("button")
+resetbtn.setAttribute("id", "resetbtn");
+controls.appendChild(resetbtn)
+resetbtn.textContent = "Reset"
 
+const rainbowbtn = document.createElement("button")
+rainbowbtn.setAttribute("id", "rainbowbtn");
+controls.appendChild(rainbowbtn)
+rainbowbtn.textContent = "Rainbow"
 
-
-function makegrid(cols, rows) {
-for (let i = 0 ; i < (cols * rows); i++) {
+function makegrid(columns, rows) {
+ let total = (rows * columns);
+for (let i = 0 ; i < total; i++) {
 const divs = document.createElement("div");
-divs.style.border = "1px solid black"
-gridcontainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+gridcontainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 gridcontainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
 gridcontainer.appendChild(divs);
 divs.classList.add("cell");
 }}
-
 makegrid(16, 16);
 
-function blackcolor() {
-  let boxes = gridcontainer.querySelectorAll(".cell")
-  for (let i = 0 ; i < (cols * rows); i++) {
-  boxes.addEventListener("click", () => {
-    boxes[i].forEach(box => box.addEventListener("mouseover", () => {
-         box.style.background = "black";
+
+function startgame() {
+ let boxes = gridcontainer.querySelectorAll(".cell")
+  startbtn.addEventListener("click", () => {
+    boxes.forEach(box => box.addEventListener("mousedown", () => {
+         box.style.background = "black"; 
+         boxes.forEach(box => box.addEventListener("mouseover", () => {
+           box.style.background = "black";
+         }))
     }))
   })
-}}
-blackcolor();
+}
+startgame();
+
+
+function rainbowgrid() {
+let boxes = gridcontainer.querySelectorAll(".cell")
+rainbowbtn.addEventListener("click", () => {
+    boxes.forEach(box => box.addEventListener("mouseover", () => {
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      box.style.background = `rgb(${r}, ${g}, ${b})`
+               }))
+    })}
+rainbowgrid() 
+
+
+
+function cleargrid () {
+  resetbtn.addEventListener("click", () => {
+    gridcontainer.innerHTML = ""; 
+    makegrid(16, 16);
+    startgame();
+  })}
+cleargrid();
