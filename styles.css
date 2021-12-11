@@ -1,24 +1,19 @@
-#container {
-  background: white;
-  display: inline-block;
-}
-
-#griddie {
-  display: grid;
-  grid-template-columns: repeat(4, 70px);
-  grid-template-rows: repeat(4, 70px);
-  grid-gap: 3px;
-
-}
 
 .cell {
-  justify-content: center;
-  align-items: center;
-  display: flex;
   background-color: white;
+  border: 0.3px solid black;
 }
 
-.cell:active {
-  background-color: orange;
+.cell:hover {
+  background-color: lightblue;
+}
+
+#grid-container {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  border: 0.6px solid black;
 }
 
