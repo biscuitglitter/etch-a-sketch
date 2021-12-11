@@ -1,19 +1,13 @@
 
 .cell {
-  background-color: white;
-  border: 0.3px solid black;
+  border: 0.3px solid green;
 }
 
-.cell:hover {
-  background-color: lightblue;
-}
 
 #grid-container {
   width: 400px;
   height: 400px;
-  margin: auto;
   display: grid;
-  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
   border: 0.6px solid black;
 }
 
