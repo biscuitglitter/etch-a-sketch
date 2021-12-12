@@ -1,6 +1,6 @@
 
 .cell {
-  border: solid 0.7px rgb(37, 35, 35);
+  border: 0.1px solid black;
 }
 
 main {
@@ -15,17 +15,20 @@ align-items: center;
   margin: 20px;
   gap: 10px;
 }
+
 #grid-container {
   min-width: 400px;
   min-height: 400px;
   display: grid;
-  border: solid 0.10px rgb(37, 35, 35);
+  border: 0.1px solid black;
 }
+
 
 #startbtn,
 #resetbtn,
 #rainbowbtn,
-#blackbtn {    
+#blackbtn,
+#applybtn {    
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -38,7 +41,24 @@ align-items: center;
   border: 0;
   border-radius: 0;
   color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  transition-duration: .75s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
  }
+
+ #startbtn:hover {
+  background: rgb(250, 250, 255);
+}
+ #resetbtn:hover {
+  background: rgb(250, 250, 255);
+}
+ #blackbtn:hover {
+  background: rgb(250, 250, 255);
+}
+ #applybtn:hover {
+  background: rgb(250, 250, 255);
+}
 
  #rainbowbtn {
   background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
@@ -54,3 +74,28 @@ align-items: center;
     background-position:20vw;
   }
 }
+
+
+
+
+display: inline-block;
+outline: 0;
+appearance: none;
+padding: 0px 12px;
+border: 0px solid transparent;
+border-radius: 4px;
+text-decoration: none;
+cursor: pointer;
+background-color: rgb(9, 128, 76);
+box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px;
+color: rgb(255, 255, 255);
+font-size: 14px;
+font-weight: 400;
+height: 36px;
+transition: all 150ms ease-in-out 0s;
+:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(17, 97, 73);
+    box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px, rgb(195 231 202) 0px 0px 0px 3px;
+}
+
