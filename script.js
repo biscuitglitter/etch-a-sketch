@@ -44,6 +44,7 @@ input = (prompt("How many squares would you like?: "))
   makegrid(input, input)
   defaultcolor()
   rainbowgrid() 
+  colorchoice()
   } else if (input > 64) {
     makegrid(16, 16)
     defaultcolor()
@@ -54,6 +55,7 @@ input = (prompt("How many squares would you like?: "))
   makegrid(16, 16)
   defaultcolor()
   rainbowgrid() 
+  colorchoice()
   }
 })
 }
