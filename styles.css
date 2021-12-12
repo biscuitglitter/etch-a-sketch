@@ -42,7 +42,7 @@ align-items: center;
   border-radius: 0;
   color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
-  transition-duration: .75s;
+  transition-duration: .25s;
   transition-property: all;
   transition-timing-function: cubic-bezier(.4,0,.2,1);
  }
@@ -78,24 +78,4 @@ align-items: center;
 
 
 
-display: inline-block;
-outline: 0;
-appearance: none;
-padding: 0px 12px;
-border: 0px solid transparent;
-border-radius: 4px;
-text-decoration: none;
-cursor: pointer;
-background-color: rgb(9, 128, 76);
-box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px;
-color: rgb(255, 255, 255);
-font-size: 14px;
-font-weight: 400;
-height: 36px;
-transition: all 150ms ease-in-out 0s;
-:hover {
-    color: rgb(255, 255, 255);
-    background-color: rgb(17, 97, 73);
-    box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px, rgb(195 231 202) 0px 0px 0px 3px;
-}
 
