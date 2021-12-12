@@ -1,6 +1,6 @@
 
 .cell {
-  border: solid 0.15px rgb(37, 35, 35);
+  border: solid 0.7px rgb(37, 35, 35);
 }
 
 main {
@@ -16,10 +16,10 @@ align-items: center;
   gap: 10px;
 }
 #grid-container {
-  min-width: 600px;
-  min-height: 600px;
+  min-width: 400px;
+  min-height: 400px;
   display: grid;
-  border: solid 2px rgb(37, 35, 35);
+  border: solid 0.10px rgb(37, 35, 35);
 }
 
 #startbtn,

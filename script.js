@@ -8,6 +8,7 @@ let rows
 let columns
 let total = (rows * columns)
 let input 
+let input2 
 
 const blackbtn = document.createElement("button")
 blackbtn.setAttribute("id", "blackbtn");
@@ -35,22 +36,24 @@ document.querySelector("#resetbtn").addEventListener('click', resetgrid);
 function resetgrid () {
  const boxes = gridcontainer.querySelectorAll(".cell");
  boxes.forEach(box => box.remove())
- }
-
-
+}
 
 function resizegrid() {
 resetbtn.addEventListener("click", () => {
-input = prompt("How many squares would you like?: ")
-resetgrid()
-makegrid(input, input)
-defaultcolor()
-rainbowgrid() 
+input = (prompt("How many squares would you like?: "))
+  if (input > 0 && input < 65) {
+  makegrid(input, input)
+  defaultcolor()
+  rainbowgrid() 
+  } else if (input === null || input != Number) {
+  alert("Please enter a valid number");
+  makegrid(16, 16)
+  defaultcolor()
+  rainbowgrid() 
+  }
 })
 }
-resizegrid();
-
-
+resizegrid(); 
 
 
 function makegrid(columns, rows) {
