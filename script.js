@@ -7,27 +7,57 @@ const cell = document.getElementById(".cell")
 let rows
 let columns
 let total = (rows * columns)
+let input 
 
-const startbtn = document.createElement("button")
-startbtn.setAttribute("id", "startbtn");
-controls.appendChild(startbtn)
-startbtn.textContent = "Start"
-
-const resetbtn = document.createElement("button")
-resetbtn.setAttribute("id", "resetbtn");
-controls.appendChild(resetbtn)
-resetbtn.textContent = "Reset"
+const blackbtn = document.createElement("button")
+blackbtn.setAttribute("id", "blackbtn");
+controls.appendChild(blackbtn)
+blackbtn.textContent = "Black"
 
 const rainbowbtn = document.createElement("button")
 rainbowbtn.setAttribute("id", "rainbowbtn");
 controls.appendChild(rainbowbtn)
 rainbowbtn.textContent = "Rainbow"
 
+const resetbtn = document.createElement("button")
+resetbtn.setAttribute("id", "resetbtn");
+controls.appendChild(resetbtn)
+resetbtn.textContent = "Reset"
+
+document.querySelector("#resetbtn").addEventListener('click', resetgrid);
+
+ /* function resetgrid () {
+   input = prompt("How many squares would you like?: ");
+    makegrid(input, input) 
+  }  */
+
+
+function resetgrid () {
+ const boxes = gridcontainer.querySelectorAll(".cell");
+ boxes.forEach(box => box.remove())
+ }
+
+
+
+function resizegrid() {
+resetbtn.addEventListener("click", () => {
+input = prompt("How many squares would you like?: ")
+resetgrid()
+makegrid(input, input)
+defaultcolor()
+rainbowgrid() 
+})
+}
+resizegrid();
+
+
+
+
 function makegrid(columns, rows) {
 total = (rows * columns)
 for (let i = 0 ; i < total; i++) {
 const divs = document.createElement("div");
-gridcontainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+gridcontainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`; 
 gridcontainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
 gridcontainer.appendChild(divs);
 divs.classList.add("cell");
@@ -35,32 +65,31 @@ divs.classList.add("cell");
 makegrid(16, 16);
 
 
-function startgame() {
- let boxes = gridcontainer.querySelectorAll(".cell")
-  startbtn.addEventListener("click", () => {
-    boxes.forEach(box => box.addEventListener("mousedown", () => {
-         box.style.background = "black"; 
-         boxes.forEach(box => box.addEventListener("mouseover", () => {
-           box.style.background = "black";
-         }))
-    }))
-  })
-}
-startgame();
-
+function defaultcolor() {
+  let boxes = gridcontainer.querySelectorAll(".cell")
+   blackbtn.addEventListener("click", () => {
+     boxes.forEach(box => box.addEventListener("mousedown", () => {
+          box.style.background = "black"; 
+          boxes.forEach(box => box.addEventListener("mouseover", () => {
+            box.style.background = "black";
+          }))
+     }))
+   })
+ }
+ defaultcolor();
 
 function rainbowgrid() {
   let boxes = gridcontainer.querySelectorAll(".cell")
   rainbowbtn.addEventListener("click", () => {  
     boxes.forEach(box => box.addEventListener("mousedown", () => {
-      let r = Math.floor(Math.random() * 500);
-      let g = Math.floor(Math.random() * 500);
-      let b = Math.floor(Math.random() * 500);
+      let r = Math.floor(Math.random() * 410);
+      let g = Math.floor(Math.random() * 410);
+      let b = Math.floor(Math.random() * 410);
       box.style.background = `rgb(${r}, ${g}, ${b})`
       boxes.forEach(box => box.addEventListener("mouseover", () => {
-        let r = Math.floor(Math.random()  * 500);
-        let g = Math.floor(Math.random()  * 500);
-        let b = Math.floor(Math.random() * 500); 
+        let r = Math.floor(Math.random()  * 410);
+        let g = Math.floor(Math.random()  * 410);
+        let b = Math.floor(Math.random() * 410); 
       box.style.background = `rgb(${r}, ${g}, ${b})`       
       }))
     }))
@@ -68,12 +97,3 @@ function rainbowgrid() {
 }
 rainbowgrid();
 
-
-
-function cleargrid () {
-  resetbtn.addEventListener("click", () => {
-    gridcontainer.innerHTML = ""; 
-    makegrid(16, 16);
-    startgame();
-  })}
-cleargrid();

@@ -16,15 +16,16 @@ align-items: center;
   gap: 10px;
 }
 #grid-container {
-  width: 400px;
-  height: 400px;
+  min-width: 600px;
+  min-height: 600px;
   display: grid;
-  border: solid 0.2px rgb(37, 35, 35);
+  border: solid 2px rgb(37, 35, 35);
 }
 
 #startbtn,
 #resetbtn,
-#rainbowbtn {    
+#rainbowbtn,
+#blackbtn {    
   display: inline-block;
   outline: none;
   cursor: pointer;
